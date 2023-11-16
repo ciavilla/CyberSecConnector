@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://cieravillalpando:harold@cluster0.6ygwnsf.mongodb.net/?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://cieravillalpando:harold@cluster0.6ygwnsf.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
 }
