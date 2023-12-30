@@ -15,7 +15,8 @@ const User = require('../../models/Users');
 router.post('/', [
     body('name', 'Name is required').notEmpty(),
     body('email', 'Please include a valid email').isEmail(),
-    body('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 })
+    body('password', 'Please enter a password with 6 or more characters'
+    ).isLength({ min: 6 })
 ],
 async (req, res) => { 
     const errors = validationResult(req);

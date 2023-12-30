@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -39,17 +39,36 @@ const AddEducation = ({ addEducation }) => {
       }}
       >
         <div className="form-group">
-          <input type="text" placeholder="* School or Bootcamp" name="school" value={school} onChange={e => onChange(e)} required />
+          <input type="text" 
+            placeholder="* School or Bootcamp" 
+            name="school" 
+            value={school} 
+            onChange={e => onChange(e)} required 
+          />
         </div>
         <div className="form-group">
-          <input type="text" placeholder="* Degree or Certificate" name="degree" value={degree} onChange={e => onChange(e)} required />
+          <input type="text" 
+            placeholder="* Degree or Certificate" 
+            name="degree" 
+            value={degree} 
+            onChange={e => onChange(e)} required 
+          />
         </div>
         <div className="form-group">
-          <input type="text" placeholder="Field of Study" name="fieldofstudy" value={fieldofstudy} onChange={e => onChange(e)} />
+          <input type="text" 
+            placeholder="Field of Study" 
+            name="fieldofstudy" 
+            value={fieldofstudy} 
+            onChange={e => onChange(e)} 
+          />
         </div>
         <div className="form-group">
           <h4>From Date</h4>
-          <input type="date" name="from" value={from} onChange={e => onChange(e)} />
+            <input type="date" 
+              name="from" 
+              value={from} 
+              onChange={e => onChange(e)} 
+            />
         </div>
          <div className="form-group">
           <p>

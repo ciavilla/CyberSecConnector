@@ -11,6 +11,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                 Professionals
             </Link>
             </li>
+            <li><Link to="/posts">
+                Posts
+            </Link>
+            </li>
             <li><Link to="/dashboard">
                 <i className="fas fa-user"></i>{' '}
                 <span className="hide-sm">Dashboard</span>
@@ -37,7 +41,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <nav className="navbar bg-dark">
             <h1>
                 <Link to='/'>
-                    <i className="fas fa-code"></i> SecConnector
+                    <i className="fas fa-code"></i> INFOSECConnector
                 </Link>
             </h1>
             { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>) }   

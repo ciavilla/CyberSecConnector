@@ -7,7 +7,7 @@ const ProfileAbout = ({
         skills,
         user: { name }
     }
-}) => 
+}) => (
     <div className="profile-about bg-light p-2">
         {bio && (
             <Fragment>
@@ -27,7 +27,7 @@ const ProfileAbout = ({
             ))}
     </div>
   </div>
-;
+);
 
 
 ProfileAbout.propTypes = {

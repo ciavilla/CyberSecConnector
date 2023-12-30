@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -29,7 +29,7 @@ const AddExperience = ({ addExperience }) => {
        Add An Experience
       </h1>
       <p className="lead">
-        <i className="fas fa-code-branch"></i> Add any cybersecurity
+        <i className="fas fa-code-branch"></i> Add any
         positions that you have had in the past
       </p>
       <small>* = required field</small>
@@ -40,17 +40,34 @@ const AddExperience = ({ addExperience }) => {
       }}
       >
         <div className="form-group">
-          <input type="text" placeholder="* Job Title" name="title" value={title} onChange={e => onChange(e)} required />
+          <input type="text" 
+            placeholder="* Job Title" 
+            name="title" value={title} 
+            onChange={e => onChange(e)} required 
+          />
         </div>
         <div className="form-group">
-          <input type="text" placeholder="* Company" name="company" value={company} onChange={e => onChange(e)} required />
+          <input type="text" 
+            placeholder="* Company" 
+            name="company" 
+            value={company} 
+            onChange={e => onChange(e)} required 
+          />
         </div>
         <div className="form-group">
-          <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} />
+          <input type="text" 
+            placeholder="Location" 
+            name="location" 
+            value={location} 
+            onChange={e => onChange(e)} 
+          />
         </div>
         <div className="form-group">
           <h4>From Date</h4>
-          <input type="date" name="from" value={from} onChange={e => onChange(e)} />
+            <input type="date" 
+            name="from" value={from} 
+            onChange={e => onChange(e)} 
+          />
         </div>
          <div className="form-group">
           <p>
@@ -94,7 +111,7 @@ const AddExperience = ({ addExperience }) => {
 };
 
 AddExperience.propTypes = {
-    addExperience: PropTypes.func.isRequired
+  addExperience: PropTypes.func.isRequired
 };
 
 export default connect(null, { addExperience })(AddExperience);
