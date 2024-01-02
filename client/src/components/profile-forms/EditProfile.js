@@ -42,24 +42,10 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             youtube: profile.youtube || '',
             instagram: profile.instagram || '',
         });
-      } else{
-        setFormData({
-          company: '',
-          website: '',
-        location: '',
-        status: '',
-        skills: '',
-        githubusername: '',
-        bio: '',
-        twitter: '',
-        facebook: '',
-        linkedin: '',
-        youtube: '',
-        instagram: ''    
-        });
-      }
-
-    }, [loading, getCurrentProfile, profile]);
+      } 
+    // This is here so that it only runs once
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+    }, []);
     
     const {
         company,
