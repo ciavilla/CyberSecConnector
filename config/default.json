@@ -1,5 +1,5 @@
 {
-    "mongoURI": "mongodb+srv://cieravillalpando:harold@cluster0.6ygwnsf.mongodb.net/?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://cieravillalpando:password2616!@cybersec1.yvvwr.mongodb.net/?retryWrites=true&w=majority&appName=CyberSec1",
     "jwtSecret": "mysecrettoken",
     "githubClientId": "0462a88aef292fcaf67b",
     "githubSecret": "a7d96cf2a31c8cbedbdd5aa11c7efdec8c45cfda"

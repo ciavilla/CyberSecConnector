@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Social network for CyberSecurity Professionals",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
@@ -21,12 +22,13 @@
   "homepage": "https://github.com/ciavilla/CyberSecConnector#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "config": "^3.3.9",
+    "config": "^3.3.12",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "gravatar": "^1.8.2",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.29.4",
+    "mongodb": "^6.13.0",
     "mongoose": "^8.0.0",
     "react-moment": "^1.1.3",
     "redux": "^5.0.0",
