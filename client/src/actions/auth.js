@@ -19,7 +19,7 @@ export const loadUser = () => async dispatch => {
     }
 
     try {
-        const res = await axios.get('/api/auth');
+        const res = await axios.get('http://localhost:5003/api/auth');
 
         dispatch({
             type: USER_LOADED,
@@ -28,12 +28,13 @@ export const loadUser = () => async dispatch => {
     } catch (err) {
         dispatch({
             type: AUTH_ERROR
-        });  
+        });
     }
 };
 
 // Register User
 export const register = ({ name, email, password }) => async dispatch => {
+
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -43,23 +44,28 @@ export const register = ({ name, email, password }) => async dispatch => {
     const body = JSON.stringify({ name, email, password });
 
     try {
-        const res = await axios.post('/api/users', body, config);
+        const res = await axios.post('http://localhost:5003/api/users', body, config);
+        console.log("I Work!", res);
+        // Log the token to ensure it's available
+        console.log('Received token:', res.data.token);
+
+        if (res.data.token) {
+            localStorage.setItem('token', res.data.token);
+            setAuthToken(res.data.token);  // Ensure token is set for subsequent requests
+        }
 
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
         });
-
-        dispatch(loadUser());
     } catch (err) {
         const errors = err.response.data.errors;
-
-        if(errors) {
+        if (errors) {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
         }
-      dispatch({
-        type: REGISTER_FAIL
-      });  
+        dispatch({
+            type: REGISTER_FAIL
+        });
     }
 };
 
@@ -74,12 +80,17 @@ export const login = (email, password) => async dispatch => {
     const body = JSON.stringify({ email, password });
 
     try {
-        const res = await axios.post('/api/auth', body, config);
+        const res = await axios.post('http://localhost:5003/api/auth', body, config);
 
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
+
+        if (res.data.token) {
+            localStorage.setItem('token', res.data.token);
+            setAuthToken(res.data.token);  // Ensure this sets the token in axios headers
+        }
 
         dispatch(loadUser());
     } catch (err) {
@@ -90,12 +101,12 @@ export const login = (email, password) => async dispatch => {
         }
       dispatch({
         type: LOGIN_FAIL
-      });  
+      });
     }
 };
 
 export const logout = () => dispatch => {
     dispatch({ type: CLEAR_PROFILE });
     dispatch({ type: LOGOUT });
-    
+
 };

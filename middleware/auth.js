@@ -3,7 +3,7 @@ import config from 'config';
 
 const auth = (req, res, next) => {
     // Get token from header
-    const token = req.header('x-auth-token');
+    const token = req.header('Authorization')?.replace('Bearer ', '');  // Extract token from Authorization header
 
     // Check if no token
     if (!token) {

@@ -1,9 +1,8 @@
-import express from 'express';
+import express, { request } from 'express';
 import gravatar from 'gravatar';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import config from '../../config/default.json' assert { type: 'json' };
- // Ensure your config file is compatible with ES modules
 import { body, validationResult } from 'express-validator';
 import User from '../../models/Users.js';
 
@@ -19,7 +18,9 @@ router.post(
         body('email', 'Please include a valid email').isEmail(),
         body('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 })
     ],
+
     async (req, res) => {
+        console.log("request", req);
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
